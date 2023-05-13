@@ -1,5 +1,120 @@
+.header-main {
+  height: 12rem;
+  width: 100%;
+  background-image: url("../../images/pattern-bg-mobile.png");
+  background-size: cover;
+}
+.header-main h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 1rem 0;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+.header-main .ip-container {
+  display: flex;
+  justify-content: center;
+}
+.header-main .ip-container .input-ip-adress {
+  width: 13rem;
+  padding: 0.8em;
+  border: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  cursor: pointer;
+}
+.header-main .ip-container .input-ip-adress:focus {
+  outline: solid 0.1rem black;
+}
+.header-main .ip-container .button-ip-adress {
+  width: 2.5rem;
+  padding: 0 0.9rem;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+}
+.header-main .ip-container .button-ip-adress:focus {
+  outline: solid 0.1rem white;
+}
+
+@media (min-width: 62rem) {
+  .header-main {
+    background-image: url("../../images/pattern-bg-desktop.png");
+  }
+  .header-main .ip-container .input-ip-adress {
+    width: 20rem;
+  }
+}
+.section-information {
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16.9rem;
+  border-radius: 0.8em;
+  background-color: beige;
+}
+.section-information .details p {
+  color: gray;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  margin: 1.3rem 0 0.3rem 0;
+}
+.section-information .details p + p {
+  color: black;
+  font-size: 1rem;
+  margin-top: 0px;
+  text-transform: none;
+}
+.section-information .details:last-child p + p {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 62rem) {
+  .section-information {
+    top: 9.2rem;
+    display: flex;
+    width: 56rem;
+    justify-content: space-around;
+  }
+  .section-information .details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20rem;
+  }
+  .section-information .details p + p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-information .details:not(:last-child):after {
+    content: "";
+    height: 60%;
+    width: 1px;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    background-color: #aaa;
+  }
+}
+.section-map {
+  background-color: brown;
+  height: 70vh;
+}
+
 body {
-  background-color: red;
-  width: 100px;
-  height: 100px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+@media (max-width: 36rem) {
+  body .main-content {
+    min-width: 15rem;
+  }
 }/*# sourceMappingURL=style.css.map */

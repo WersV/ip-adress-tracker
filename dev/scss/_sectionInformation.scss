@@ -1,0 +1,60 @@
+@use 'variables';
+.section-information {
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16.9rem;
+  border-radius: 0.8em;
+  background-color: beige;
+
+  .details {
+    p {
+      color: gray;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      margin: 1.3rem 0 0.3rem 0;
+    }
+    p+p {
+      color: black;
+      font-size: 1rem;
+      margin-top: 0px;
+      text-transform: none;
+    }
+  }
+  .details:last-child {
+    p+p {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+@media #{variables.$desktop} {
+  .section-information {
+    top: 9.2rem;
+    display: flex;
+    width: 56rem;
+    justify-content: space-around;
+    .details {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-basis: 20rem;
+      p+p{
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+    .details:not(:last-child):after {
+      content:'';
+      height: 60%;
+      width: 1px;
+      position: absolute;
+      top: 20%;
+      right: 0;
+      background-color: #aaa;
+    }
+  }
+}

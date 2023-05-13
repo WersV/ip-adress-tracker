@@ -1,0 +1,21 @@
+@use 'headerMain';
+@use "sectionInformation";
+@use 'sectionMap';
+@use 'variables';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+@media #{variables.$phone} {
+  body {
+    .main-content {
+      min-width: 15rem;
+    }
+  }
+}
+
+// in media queries when u use rem you have to multiply it by 16 to get screen resolution

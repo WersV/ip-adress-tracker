@@ -15,10 +15,12 @@
 .header-main .ip-container {
   display: flex;
   justify-content: center;
+  margin: 0 20px;
 }
 .header-main .ip-container .input-ip-adress {
+  min-width: 9rem;
   width: 13rem;
-  padding: 0.8em;
+  padding: 0.8em 1rem 0.6rem 1rem;
   border: 0;
   border-radius: 0.5rem 0 0 0.5rem;
   cursor: pointer;
@@ -38,6 +40,9 @@
 .header-main .ip-container .button-ip-adress:focus {
   outline: solid 0.1rem white;
 }
+.header-main .ip-container .button-ip-adress:hover {
+  background-color: #1a1a1a;
+}
 
 @media (min-width: 62rem) {
   .header-main {
@@ -45,6 +50,8 @@
   }
   .header-main .ip-container .input-ip-adress {
     width: 20rem;
+    font-size: 1.125rem;
+    padding: 0.8em 1rem 0.8rem 1rem;
   }
 }
 .section-information {
@@ -52,9 +59,10 @@
   top: 7rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 16.9rem;
+  width: 17.5rem;
   border-radius: 0.8em;
-  background-color: beige;
+  background-color: white;
+  z-index: 2;
 }
 .section-information .details p {
   color: gray;
@@ -102,8 +110,13 @@
   }
 }
 .section-map {
-  background-color: brown;
-  height: 70vh;
+  background-color: lightgray;
+  height: calc(100vh - 12rem);
+  position: relative;
+  z-index: 1;
+}
+.section-map #map {
+  height: 100%;
 }
 
 body {

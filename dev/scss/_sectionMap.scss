@@ -1,4 +1,9 @@
 .section-map {
-  background-color: brown;
-  height: 70vh;
+  background-color: lightgray;
+  height: calc(100vh - 12rem);
+  position: relative;
+  z-index: 1;
+  #map { 
+    height: 100%;
+  }
 }

@@ -4,9 +4,10 @@
   top: 7rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 16.9rem;
+  width: 17.5rem;
   border-radius: 0.8em;
-  background-color: beige;
+  background-color: white;
+  z-index: 2;
 
   .details {
     p {

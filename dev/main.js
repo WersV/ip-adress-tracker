@@ -6,7 +6,7 @@ const detailsIsp = document.querySelector('.details-isp p+p');
 const inputIpAddress = document.querySelector('.input-ip-adress');
 
 const myIcon = L.icon({
-  iconUrl: '../images/icon-location.svg',
+  iconUrl: 'images/icon-location.svg',
   iconSize: [38, 45],
   iconAnchor: [22, 45],
   popupAnchor: [-3, -76],
@@ -29,7 +29,6 @@ function showOnMap(lat, lng) {
   let marker = L.marker(([lat, lng]), {
     icon: myIcon
   }).addTo(map);
-  marker.bindPopup("test");
 }
 
 const fillInformationSection = (data) => {

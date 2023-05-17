@@ -21,7 +21,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshots/captureMobile.PNG)
+![](./screenshots/captureDesktop.PNG)
 ![](./screenshots/captureMobile.PNG)
 
 ### Links
@@ -31,4 +31,4 @@ Users should be able to:
 
 ## Author
 
-- My GitHub profile - [Przemysław Botwina(WersV)](https://github.com/WersV)
+- My GitHub profile - [Przemysław Botwina](https://github.com/WersV)

@@ -10,14 +10,12 @@ const myIcon = L.icon({
   iconSize: [38, 45],
   iconAnchor: [22, 45],
   popupAnchor: [-3, -76],
-  shadowUrl: null,
   shadowSize: [68, 95],
   shadowAnchor: [22, 94]
 });
 
 function showOnMap(lat, lng) {
-  x = lat;
-  if (map != undefined) {
+  if (map !== undefined) {
     map.remove();
   }
   map = L.map('map').setView([lat, lng], 16);
@@ -32,16 +30,22 @@ function showOnMap(lat, lng) {
 }
 
 const fillInformationSection = (data) => {
-  detailsIpAddress.textContent = data.ip;
-  detailsLocation.textContent = `${data.location.country}, ${data.location.city}`;
-  detailsTimezone.textContent = data.location.timezone;
-  detailsIsp.textContent = data.isp;
+  const {
+    ip,
+    location,
+    isp
+  } = data;
+  detailsIpAddress.textContent = ip;
+  detailsLocation.textContent = `${location.country}, ${location.city}`;
+  detailsTimezone.textContent = location.timezone;
+  detailsIsp.textContent = isp;
 }
 
-const validateIPaddress = ipAddress => {
-  if (/^(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/.test(ipAddress)) {
+const validateIPaddress = (ipAddress) => {
+  try {
+    new URL(`http://${ipAddress}`);
     return true;
-  } else {
+  } catch (error) {
     alert("You have entered an invalid IP address!");
     return false;
   }
@@ -49,15 +53,13 @@ const validateIPaddress = ipAddress => {
 
 const searchForLocalisation = (ipAddress, origin) => {
   let properIp;
-  console.log(ipAddress);
-
   if (origin === 'btn') {
     properIp = ipAddress.target.parentNode.parentNode.querySelector('.input-ip-adress').value;
   } else if (origin === 'initial') {
     properIp = ipAddress;
   }
   if (validateIPaddress(properIp)) {
-    fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_4xOVF9kNuGtwtHoYbP8BxseB81sXZ&ipAddress=${properIp}`)
+    fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_62iliDOtkBIE58EM1xsv2J0jlrE19&ipAddress=${properIp}`)
       .then(resp => resp.json())
       .then(data => {
         showOnMap(data.location.lat, data.location.lng);
@@ -72,7 +74,8 @@ async function getIpAddress() {
     const resp = await apiCall.json();
     return resp;
   } catch (err) {
-    console.error(err);
+    console.error(err)
+    alert('Failed to obtain IP address');
   }
 }
 async function showUserIp() {
@@ -81,6 +84,5 @@ async function showUserIp() {
   searchForLocalisation(ipResp.ip, 'initial')
 }
 showUserIp();
-const a = inputIpAddress.value;
 const btn = document.querySelector('.button-ip-adress');
 btn.addEventListener('click', (e) => searchForLocalisation(e, 'btn'));

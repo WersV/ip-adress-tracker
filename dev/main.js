@@ -70,7 +70,7 @@ const searchForLocalisation = (ipAddress, origin) => {
 
 async function getIpAddress() {
   try {
-    const apiCall = await fetch('https://api.ipify.org?format=json')
+    const apiCall = await fetch('https://api.bigdatacloud.net/data/client-ip')
     const resp = await apiCall.json();
     return resp;
   } catch (err) {
@@ -80,8 +80,8 @@ async function getIpAddress() {
 }
 async function showUserIp() {
   const ipResp = await getIpAddress();
-  inputIpAddress.value = ipResp.ip;
-  searchForLocalisation(ipResp.ip, 'initial')
+  inputIpAddress.value = ipResp.ipString;
+  searchForLocalisation(ipResp.ipString, 'initial')
 }
 showUserIp();
 const btn = document.querySelector('.button-ip-adress');
